@@ -7,3 +7,12 @@ const bot = telegramApi(token, {polling: true});
 bot.on('message', msg => {
     console.log(msg);
 });
+
+bot.on('message', msg => {
+    const text = msg.text;
+    const chatId = msg.chat.id;
+
+    if(text === '/start') {
+        bot.sendMessage(chatId, 'привет мир')
+    }
+});
